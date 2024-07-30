@@ -1,0 +1,38 @@
+[package]
+name = "game"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1"
+bevy = { version = "0.12", features = ["webgl2", "png", "jpeg", "serialize"] }
+bevy_asset_loader = { version = "0.19.0", features = ["progress_tracking"] }
+bevy_common_assets = { version = "0.9.0", features = ["ron", "toml"] }
+bevy_dolly = "0.0.2"
+bevy_editor_pls = { version = "0.7", optional = true }
+bevy_egui = "0.24"
+bevy_kira_audio = "0.18"
+bevy_mod_sysfail = "5"
+bevy_rapier3d = { version = "0.23.0", features = [ "serde-serialize", "wasm-bindgen"] }
+bitflags = "2"
+chrono = "0.4"
+glob = "0.3"
+image = { version = "0.24", default-features = false, features = ["png", "jpeg"] }
+iyes_progress = "0.10"
+leafwing-input-manager = { version = "0.11", features = [] }
+rand = { version = "0.8", features = ["small_rng", "nightly"] }
+regex = "1"
+ron = "0.8"
+seldom_fn_plugin = "0.5"
+serde = { version = "1", features = ["derive"] }
+spew = "0.4"
+strum = "0.25"
+strum_macros = "0.25"
+unicode-segmentation = "1"
+webbrowser = "0.8.13"
+
+[build]
+rustflags = ["--cfg=web_sys_unstable_apis"]
+
+[build-dependencies]
+embed-resource = "2"

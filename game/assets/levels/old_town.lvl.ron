@@ -1,0 +1,214 @@
+([
+    (
+        Sunlight,
+        (
+            transform: (
+                translation: (0.0, 0.0, 0.0),
+                rotation: (-0.38268346, 0.0, 0.0, 0.9238795),
+                scale: (1.0, 1.0, 1.0),
+            ),
+        ),
+    ),
+    (
+        Skydome,
+        (
+            transform: (
+                translation: (0.0, 0.0, 0.0),
+                rotation: (0.0, 0.0, 0.0, 1.0),
+                scale: (1.0, 1.0, 1.0),
+            ),
+        ),
+    ),
+    (
+        Level,
+        (
+            transform: (
+                translation: (0.0, 0.0, 0.0),
+                rotation: (0.0, 0.0, 0.0, 1.0),
+                scale: (1.0, 1.0, 1.0),
+            ),
+        ),
+    ),
+    (
+        Orb,
+        (
+            transform: (
+                translation: (0.7, 5.0, -2.0),
+                rotation: (0.0, 0.0, 0.0, 1.0),
+                scale: (1.0, 1.0, 1.0),
+            ),
+        ),
+    ),
+    (
+        Npc,
+        (
+            transform: (
+                translation: (-1.488441, 1.5, -1.6930319),
+                rotation: (0.0, -0.64089495, 0.0, 0.7676286),
+                scale: (1., 1., 1.),
+            ),
+            npc: (
+                dialog: (
+                    dialog_settings: (
+                        width: Auto,
+                        height: Auto,
+                        border: [1.0],
+                        padding: [16.0],
+                        background_color: Rgba(alpha:0.8,blue:1.0,green:1.0,red:1.0),
+
+                        // box_style: (
+                        //     width: Auto,
+                        //     height: Auto,
+                        //     border: UiRect(left: Px(1.0), right: Px(1.0), top: Px(1.0), bottom: Px(1.0) ),
+                        //     padding: UiRect(left: Px(16.0), right: Px(16.0), top: Px(16.0), bottom: Px(16.0) ),
+                        //     display: Flex,
+                        //     position_type: Absolute
+                        // ),
+                    ),
+                    sections: [
+                    (
+                        elements: [
+                        (
+                            element_type: Text,
+                            background: Rgba(alpha:0.0,blue:0.0,green:0.0,red:0.0),
+                            text_sections: [
+                            (
+                                text: "HEADER\n",
+                                font_size: 40.0
+                            ),
+                            (
+                                text: "Libero iure sed rerum ullam eos doloremque consectetur corporis. Tempora blanditiis in.\n Tenetur optio at doloribus. Rerum sapiente a nihil architecto quia error.Voluptatem est inventore et natus. Aliquam repellendus magni delectus sunt quia animi.Atque itaque laboriosam est et ut error eum. Ut non velit nesciunt rerum est nihil.\nConsequatur possimus assumenda illum totam officia quo. Vel et molestiae velit.\nPariatur sed et est tempora rerum ut. Quae qui sed qui. Id laboriosam quas laboriosam consequuntur enim. Est id laborum libero expedita est sit placeat quia excepturi.",
+                                font_size: 12.0,
+                                color: Rgba(alpha: 1.0, blue: 0.0, green: 0.0, red: 1.0)
+                            )
+                            ]
+                        ),
+                        (
+                            element_type: Image,
+                            image: "branding/sky.jpg"
+                        )
+                        ]
+                ),
+                    (
+                        elements: [
+                        (
+                            element_type: Button,
+                            button: (
+                            interaction: (
+                                interaction_type: Link,
+                                link: "https://just-dev-it.com"
+                            )
+                            )
+                        ),
+                        (
+                            element_type: Image,
+                            image_size: (200.0, 50.0)
+                        )
+                        ]
+                    )
+                    ]
+            )
+            )
+        ),
+    ),
+    (
+        Npc,
+        (
+            transform: (
+                translation: (-3.488441, 1.5, -1.6930319),
+                rotation: (0.0, -0.64089495, 0.0, 0.7676286),
+                scale: (1., 1., 1.),
+            ),
+            npc: (
+                scene: "/scenes/electrician.glb#Scene0",
+                animations: (
+                    character_idle: "/scenes/electrician.glb#Animation1",
+                    character_walking: "/scenes/electrician.glb#Animation1",
+                    character_running: "/scenes/electrician.glb#Animation1",
+                    character_falling: "/scenes/electrician.glb#Animation1",
+                ),
+                dialog: (
+                        dialog_settings: (
+                        layout: Bottom,
+                        height: Auto,
+                        padding: [20.0,20.0, 50.0]
+                        ),
+                        sections: [
+                        (
+                            elements: [
+                            (
+                                element_type: Text,
+                                text_sections: [
+                                (
+                                    text: "HEADER\n",
+                                    font_size: 40.0
+                                ),
+                                (
+                                    text: "Libero iure sed rerum ullam eos doloremque consectetur corporis. Tempora blanditiis in.\n Tenetur optio at doloribus. Rerum sapiente a nihil architecto quia error.Voluptatem est inventore et natus. Aliquam repellendus magni delectus sunt quia animi.Atque itaque laboriosam est et ut error eum. Ut non velit nesciunt rerum est nihil.\nConsequatur possimus assumenda illum totam officia quo. Vel et molestiae velit.\nPariatur sed et est tempora rerum ut. Quae qui sed qui. Id laboriosam quas laboriosam consequuntur enim. Est id laborum libero expedita est sit placeat quia excepturi.",
+                                    font_size: 12.0
+                                )
+                                ]
+                            )
+                            ]
+                        )
+                        ]
+                )
+            ),
+        ),
+    ),
+    (
+        Npc,
+        (
+            transform: (
+                translation: (-9.488441, 5.5, -1.6930319),
+                rotation: (0.0, -0.64089495, 0.0, 0.7676286),
+                scale: (1., 1., 1.),
+            ),
+            npc: (
+                scene: "/scenes/scientist.glb#Scene0",
+                animations: (
+                    character_idle: "/scenes/scientist.glb#Animation2",
+                    character_walking: "/scenes/scientist.glb#Animation1",
+                    character_running: "/scenes/scientist.glb#Animation1",
+                    character_falling: "/scenes/scientist.glb#Animation1",
+                ),
+                dialog: (
+                        dialog_settings: (
+                        layout: Bottom,
+                        height: Auto,
+                        padding: [20.0,20.0, 50.0]
+                        ),
+                        sections: [
+                        (
+                            elements: [
+                            (
+                                element_type: Text,
+                                text_sections: [
+                                (
+                                    text: "HEADER\n",
+                                    font_size: 40.0
+                                ),
+                                (
+                                    text: "Libero iure sed rerum ullam eos doloremque consectetur corporis. Tempora blanditiis in.\n Tenetur optio at doloribus. Rerum sapiente a nihil architecto quia error.Voluptatem est inventore et natus. Aliquam repellendus magni delectus sunt quia animi.Atque itaque laboriosam est et ut error eum. Ut non velit nesciunt rerum est nihil.\nConsequatur possimus assumenda illum totam officia quo. Vel et molestiae velit.\nPariatur sed et est tempora rerum ut. Quae qui sed qui. Id laboriosam quas laboriosam consequuntur enim. Est id laborum libero expedita est sit placeat quia excepturi.",
+                                    font_size: 12.0
+                                )
+                                ]
+                            )
+                            ]
+                        )
+                        ]
+                )
+            ),
+        ),
+    ),
+    (
+        Camera,
+        (
+            transform: (
+                translation: (7.366603, 2.1272051, -3.338453),
+                rotation: (-0.0713736, 0.7723035, 0.08818959, 0.62504065),
+                scale: (1.0, 1.0, 1.0),
+            ),
+        ),
+    ),
+])
