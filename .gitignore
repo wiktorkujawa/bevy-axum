@@ -1,8 +1,1 @@
 /target
-Secrets*.toml
-dist/*
-!dist/index.html
-!dist/Roboto-Black.ttf
-!dist/bevy-assets/
-/target
-.shuttle-storage
