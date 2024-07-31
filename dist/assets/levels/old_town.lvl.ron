@@ -120,12 +120,12 @@
                 scale: (1., 1., 1.),
             ),
             npc: (
-                scene: "/scenes/electrician.glb#Scene0",
+                scene: "scenes/electrician.glb#Scene0",
                 animations: (
-                    character_idle: "/scenes/electrician.glb#Animation1",
-                    character_walking: "/scenes/electrician.glb#Animation1",
-                    character_running: "/scenes/electrician.glb#Animation1",
-                    character_falling: "/scenes/electrician.glb#Animation1",
+                    character_idle: "scenes/electrician.glb#Animation1",
+                    character_walking: "scenes/electrician.glb#Animation1",
+                    character_running: "scenes/electrician.glb#Animation1",
+                    character_falling: "scenes/electrician.glb#Animation1",
                 ),
                 dialog: (
                         dialog_settings: (
@@ -165,12 +165,12 @@
                 scale: (1., 1., 1.),
             ),
             npc: (
-                scene: "/scenes/scientist.glb#Scene0",
+                scene: "scenes/scientist.glb#Scene0",
                 animations: (
-                    character_idle: "/scenes/scientist.glb#Animation2",
-                    character_walking: "/scenes/scientist.glb#Animation1",
-                    character_running: "/scenes/scientist.glb#Animation1",
-                    character_falling: "/scenes/scientist.glb#Animation1",
+                    character_idle: "scenes/scientist.glb#Animation2",
+                    character_walking: "scenes/scientist.glb#Animation1",
+                    character_running: "scenes/scientist.glb#Animation1",
+                    character_falling: "scenes/scientist.glb#Animation1",
                 ),
                 dialog: (
                         dialog_settings: (
