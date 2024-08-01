@@ -1,9 +1,4 @@
 use crate::file_system_interaction::asset_loading::ImageAssets;
-use crate::level_instantiation::spawning::objects::{
-    Dialog, 
-    // Element
-};
-// use crate::level_instantiation::spawning::GameObject;
 use crate::player_control::actions::{ActionsFrozen, PlayerAction};
 use crate::player_control::camera::{
     // ForceCursorGrabMode, 
@@ -22,6 +17,8 @@ use leafwing_input_manager::prelude::ActionState;
 use serde::{Deserialize, Serialize};
 use std::f32::consts::TAU;
 
+use super::dialog::Dialog;
+
 #[derive(States, Default, Clone, Eq, PartialEq, Debug, Hash)]
 pub enum DialogOpened {
     #[default]
@@ -33,7 +30,6 @@ pub(crate) fn interactions_ui_plugin(app: &mut App) {
     app.register_type::<InteractionOpportunities>()
         .init_resource::<InteractionOpportunities>()
         .add_state::<DialogOpened>()
-        // .init_state::<DialogOpened>()
         .add_systems(
             Update,
             (update_interaction_opportunities, update_interaction_ui)
@@ -44,7 +40,7 @@ pub(crate) fn interactions_ui_plugin(app: &mut App) {
             Update,
             display_interaction_prompt
                 .run_if(resource_exists::<InteractionUi>())
-                // .run_if(resource_exists::<InteractionUi>)
+                // .run_if(resource_exists::<InteractionUi>().and_then(not(is_frozen)))
                 // .run_if(in_state(GameState::Playing)),
         );
 }

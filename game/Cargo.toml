@@ -36,3 +36,12 @@ rustflags = ["--cfg=web_sys_unstable_apis"]
 
 [build-dependencies]
 embed-resource = "2"
+
+[profile.dev]
+opt-level = 3               # Use slightly better optimizations.
+overflow-checks = false     # Disable integer overflow checks.
+
+[profile.release]
+opt-level = 3               # Use slightly better optimizations.
+overflow-checks = false     # Disable integer overflow checks.
+

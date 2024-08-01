@@ -9,3 +9,11 @@ shuttle-axum = "0.46.0"
 shuttle-runtime = "0.46.0"
 tokio = "1.28.2"
 tower-http = { version = "0.5.0", features = ["fs", "cors"] }
+
+[profile.dev]
+opt-level = 3               # Use slightly better optimizations.
+overflow-checks = false     # Disable integer overflow checks.
+
+[profile.release]
+opt-level = 3               # Use slightly better optimizations.
+overflow-checks = false     # Disable integer overflow checks.
