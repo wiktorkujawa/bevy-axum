@@ -48,13 +48,13 @@ pub(crate) struct SceneAssets {
     #[asset(paths(
         "scenes/Fox.glb#Scene0", 
         "scenes/main_character.glb#Scene0", 
-        "scenes/electrician.glb#Scene0",
+        // "scenes/electrician.glb#Scene0",
         "scenes/scientist.glb#Scene0"), collection(typed, mapped))]
     pub(crate) npc: HashMap<String, Handle<Scene>>,
     #[asset(paths(
         "scenes/Fox.glb#Scene0", 
         "scenes/main_character.glb#Scene0", 
-        "scenes/electrician.glb#Scene0",
+        // "scenes/electrician.glb#Scene0",
         "scenes/scientist.glb#Scene0"), collection(typed, mapped))]
     pub(crate) object: HashMap<String, Handle<Scene>>,
     #[asset(path = "scenes/college.glb#Scene0")]
@@ -66,7 +66,7 @@ pub(crate) struct AnimationAssets {
     #[asset(paths(
         "scenes/Fox.glb#Animation0",
         "scenes/main_character.glb#Animation0", 
-        "scenes/electrician.glb#Animation1",
+        // "scenes/electrician.glb#Animation1",
         "scenes/scientist.glb#Animation0",
         "scenes/scientist.glb#Animation1",
         "scenes/scientist.glb#Animation2",
@@ -75,19 +75,19 @@ pub(crate) struct AnimationAssets {
     #[asset(paths(
         "scenes/Fox.glb#Animation1", 
         "scenes/main_character.glb#Animation1", 
-        "scenes/electrician.glb#Animation1",
+        // "scenes/electrician.glb#Animation1",
         "scenes/scientist.glb#Animation1"), collection(typed, mapped))]
     pub(crate) character_walking: HashMap<String, Handle<AnimationClip>>,
     #[asset(paths(
         "scenes/Fox.glb#Animation2",
         "scenes/main_character.glb#Animation2",
-        "scenes/electrician.glb#Animation1",
+        // "scenes/electrician.glb#Animation1",
         "scenes/scientist.glb#Animation1"), collection(typed, mapped))]
     pub(crate) character_running: HashMap<String, Handle<AnimationClip>>,
     #[asset(paths(
         "scenes/Fox.glb#Animation2",
         "scenes/main_character.glb#Animation2",
-        "scenes/electrician.glb#Animation1",
+        // "scenes/electrician.glb#Animation1",
         "scenes/scientist.glb#Animation1"), collection(typed, mapped))]
     pub(crate) character_falling: HashMap<String, Handle<AnimationClip>>,
     #[asset(path = "scenes/main_character.glb#Animation1")]

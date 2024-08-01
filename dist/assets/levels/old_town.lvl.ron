@@ -115,51 +115,6 @@
         Npc,
         (
             transform: (
-                translation: (-3.488441, 1.5, -1.6930319),
-                rotation: (0.0, -0.64089495, 0.0, 0.7676286),
-                scale: (1., 1., 1.),
-            ),
-            npc: (
-                scene: "scenes/electrician.glb#Scene0",
-                animations: (
-                    character_idle: "scenes/electrician.glb#Animation1",
-                    character_walking: "scenes/electrician.glb#Animation1",
-                    character_running: "scenes/electrician.glb#Animation1",
-                    character_falling: "scenes/electrician.glb#Animation1",
-                ),
-                dialog: (
-                        dialog_settings: (
-                        layout: Bottom,
-                        height: Auto,
-                        padding: [20.0,20.0, 50.0]
-                        ),
-                        sections: [
-                        (
-                            elements: [
-                            (
-                                element_type: Text,
-                                text_sections: [
-                                (
-                                    text: "HEADER\n",
-                                    font_size: 40.0
-                                ),
-                                (
-                                    text: "Libero iure sed rerum ullam eos doloremque consectetur corporis. Tempora blanditiis in.\n Tenetur optio at doloribus. Rerum sapiente a nihil architecto quia error.Voluptatem est inventore et natus. Aliquam repellendus magni delectus sunt quia animi.Atque itaque laboriosam est et ut error eum. Ut non velit nesciunt rerum est nihil.\nConsequatur possimus assumenda illum totam officia quo. Vel et molestiae velit.\nPariatur sed et est tempora rerum ut. Quae qui sed qui. Id laboriosam quas laboriosam consequuntur enim. Est id laborum libero expedita est sit placeat quia excepturi.",
-                                    font_size: 12.0
-                                )
-                                ]
-                            )
-                            ]
-                        )
-                        ]
-                )
-            ),
-        ),
-    ),
-    (
-        Npc,
-        (
-            transform: (
                 translation: (-9.488441, 5.5, -1.6930319),
                 rotation: (0.0, -0.64089495, 0.0, 0.7676286),
                 scale: (1., 1., 1.),
