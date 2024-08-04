@@ -1,6 +1,6 @@
 # Bevy sandbox
 
-This repository is based on the [Foxtrot](https://github.com/janhohenheim/foxtrot) template, version 3.0. It extends the original template with a more complex asset and level generating system. The server is running with Axum. And cors is enabled, so you can access the deployed or launched server from different origins, f.e.: https://just-dev-it.com/bevy-sandbox(Website build with Nextjs and PayloadCMS)
+This repository is based on the [Foxtrot](https://github.com/janhohenheim/foxtrot) template, version 0.3.0. It extends the original template with a more complex asset and level generating system. The server is running with Axum. And cors is enabled, so you can access the deployed or launched server from different origins, f.e.: https://just-dev-it.com/bevy-sandbox(Website build with Nextjs and PayloadCMS)
 
 ## Scripts
 
