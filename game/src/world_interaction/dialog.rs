@@ -1,33 +1,31 @@
+use crate::file_system_interaction::asset_loading::ImageAssets;
 pub(crate) use crate::world_interaction::dialog::resources::{
-    CurrentDialog, 
+    CurrentDialog,
     // DialogId
 };
-use bevy::prelude::*;
-use serde::{Deserialize, Serialize};
-use bevy_egui::{
-    egui::{self, Color32, FontId, Margin, RichText, Rounding, ScrollArea},
-    EguiContexts,
-    EguiPlugin
-};
-use leafwing_input_manager::action_state::ActionState;
 use crate::{
     player_control::actions::{ActionsFrozen, PlayerAction},
     world_interaction::interactions_ui::DialogOpened,
 };
-use crate::file_system_interaction::asset_loading::ImageAssets;
+use bevy::prelude::*;
+use bevy_egui::{
+    egui::{self, Color32, FontId, Margin, RichText, Rounding, ScrollArea},
+    EguiContexts, EguiPlugin,
+};
+use leafwing_input_manager::action_state::ActionState;
+use serde::{Deserialize, Serialize};
 
 mod resources;
 
 pub(crate) fn dialog_plugin(app: &mut App) {
     app.add_plugins(EguiPlugin);
-        // .register_type::<DialogId>()
-        // .add_event::<DialogEvent>();
-        // .add_systems(
-        //     Update,
-        //     (set_current_dialog, show_dialog).run_if(in_state(GameState::Playing)),
-        // );
+    // .register_type::<DialogId>()
+    // .add_event::<DialogEvent>();
+    // .add_systems(
+    //     Update,
+    //     (set_current_dialog, show_dialog).run_if(in_state(GameState::Playing)),
+    // );
 }
-
 
 #[derive(Component, Debug, Clone, Serialize, Deserialize, PartialEq, Reflect)]
 pub struct Dialog {
@@ -56,21 +54,20 @@ impl Dialog {
         egui_contexts: &mut EguiContexts,
         image_handles: &mut Res<ImageAssets>,
     ) {
-            match get_dialog_opened.get() {
-                DialogOpened::Off => {
-                    // actions_frozen.unfreeze();
-                }
-                DialogOpened::On => {
+        match get_dialog_opened.get() {
+            DialogOpened::Off => {
+                // actions_frozen.unfreeze();
+            }
+            DialogOpened::On => {
+                let Dialog {
+                    dialog_settings,
+                    sections,
+                    ..
+                } = self;
 
-                    let Dialog {
-                        dialog_settings,
-                        sections,
-                        ..
-                    } = self;
+                let ctx = egui_contexts.ctx_mut().clone();
 
-                    let ctx = egui_contexts.ctx_mut().clone();
-
-                    egui::CentralPanel::default()
+                egui::CentralPanel::default()
                         .frame(egui::Frame {
                             fill: egui::Color32::from_black_alpha(240),
                             inner_margin: get_ui_spacing(dialog_settings.padding.clone()),
@@ -92,7 +89,6 @@ impl Dialog {
                                     }
                                 });
                             });
-                            
                             let max_rect = ui.max_rect();
                             let max_size = max_rect.size();
                             egui::Grid::new("Dialog").show(ui, |ui| {
@@ -117,7 +113,6 @@ impl Dialog {
                                                         ui.set_min_width(
                                                             max_size.x / (element_size as f32),
                                                         );
-                                                        
                                                         for text_section in &element.text_sections {
                                                             let transform_color = bevy_egui::egui::Color32::from_rgba_unmultiplied(
                                                                 (text_section.color.r() * 255.0).round() as u8,
@@ -139,8 +134,6 @@ impl Dialog {
                                                         }
                                                     });
                                                 });
-
-                                                // RichText::new("Large text").font(FontId::proportional(40.0))
                                             }
                                             ElementType::Image => {
                                                 let rendered_texture_id = egui_contexts.add_image(
@@ -150,8 +143,6 @@ impl Dialog {
                                                         .unwrap()
                                                         .clone_weak(),
                                                 );
-                                                
-
                                                 ui.add(egui::widgets::Image::new(
                                                     egui::load::SizedTexture::new(
                                                         rendered_texture_id,
@@ -187,34 +178,23 @@ impl Dialog {
                                                         }
                                                     }
 
-                                                    // if webbrowser::open("https://just-dev-it.com/")
-                                                    //         .is_ok()
-                                                    //     {
-                                                    // change_dialog_opened.set(DialogOpened::Off);
-                                                    // actions_frozen.unfreeze();
-                                                    // app_exit_events.send(AppExit);
-                                                    // }
+
                                                 }
                                             }
                                         }
-
-                                        // });
                                     }
                                     ui.end_row();
-
-                                    // });
                                 }
                             });
 
                         });
-                }
             }
+        }
 
-            if actions.just_pressed(PlayerAction::Interact) {
-                change_dialog_opened.set(DialogOpened::On);
-                actions_frozen.freeze();
-            }
-
+        if actions.just_pressed(PlayerAction::Interact) {
+            change_dialog_opened.set(DialogOpened::On);
+            actions_frozen.freeze();
+        }
     }
 }
 
@@ -477,7 +457,7 @@ pub fn get_ui_spacing(array: Vec<f32>) -> Margin {
             top: array[0],
             right: array[1],
             bottom: array[2],
-            left: array[1]
+            left: array[1],
         },
         4 => Margin {
             top: array[0],

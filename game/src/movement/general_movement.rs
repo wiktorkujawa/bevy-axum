@@ -173,16 +173,22 @@ fn play_animations(
         &CharacterAnimations,
     )>,
     keys: Res<Input<KeyCode>>,
-) -> Result<()>  {
+) -> Result<()> {
     #[cfg(feature = "tracing")]
     let _span = info_span!("play_animations").entered();
     for (
-        // actions, 
-        velocity, transform, grounded, animation_entity_link, animations) in characters.iter() {
+        // actions,
+        velocity,
+        transform,
+        grounded,
+        animation_entity_link,
+        animations,
+    ) in characters.iter()
+    {
         let mut animation_player = animation_player
             .get_mut(animation_entity_link.0)
             .context("animation_entity_link held entity without animation player")?;
-            // .context("animation_entity_link held entity without animation player").unwrap();
+        // .context("animation_entity_link held entity without animation player").unwrap();
 
         let has_horizontal_movement = !velocity
             .linvel
@@ -195,19 +201,20 @@ fn play_animations(
                 .play_with_transition(animations.aerial.clone_weak(), Duration::from_secs_f32(0.2))
                 .repeat();
         } else if has_horizontal_movement {
-
-
             if keys.pressed(KeyCode::ShiftLeft) {
                 animation_player
-                .play_with_transition(animations.running.clone_weak(), Duration::from_secs_f32(0.2))
-                .repeat();
-            }
-
-            else {
-
-            animation_player
-                .play_with_transition(animations.walk.clone_weak(), Duration::from_secs_f32(0.2))
-                .repeat();
+                    .play_with_transition(
+                        animations.running.clone_weak(),
+                        Duration::from_secs_f32(0.2),
+                    )
+                    .repeat();
+            } else {
+                animation_player
+                    .play_with_transition(
+                        animations.walk.clone_weak(),
+                        Duration::from_secs_f32(0.2),
+                    )
+                    .repeat();
             }
         } else {
             animation_player
@@ -258,7 +265,7 @@ fn sync_models(
     without_model: Query<(&Transform, &Visibility), Without<Model>>,
     mut with_model: Query<(Entity, &mut Transform, &mut Visibility, &Model)>,
     game_config: Res<GameConfig>,
-) -> Result<()>  {
+) -> Result<()> {
     let dt = time.delta_seconds();
     for (model_entity, mut model_transform, mut visibility, model) in with_model.iter_mut() {
         if let Ok((target_transform, target_visibility)) = without_model.get(model.target) {

@@ -12,11 +12,12 @@ pub(crate) const RADIUS: f32 = 0.4;
 use super::SpawnStruct;
 
 pub(crate) fn spawn(
-    In(SpawnStruct { transform, object, ..}): In<SpawnStruct>,    
+    In(SpawnStruct {
+        transform, object, ..
+    }): In<SpawnStruct>,
     mut commands: Commands,
     scene_handles: Res<SceneAssets>,
 ) {
-
     let entity = commands
         .spawn((
             PbrBundle {

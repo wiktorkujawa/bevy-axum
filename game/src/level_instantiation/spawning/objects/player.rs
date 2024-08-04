@@ -16,7 +16,7 @@ pub(crate) const HEIGHT: f32 = 0.4;
 pub(crate) const RADIUS: f32 = 0.3;
 
 pub(crate) fn spawn(
-    In(SpawnStruct { transform, ..}): In<SpawnStruct>,
+    In(SpawnStruct { transform, .. }): In<SpawnStruct>,
     mut commands: Commands,
     animations: Res<AnimationAssets>,
     scene_handles: Res<SceneAssets>,
@@ -38,7 +38,7 @@ pub(crate) fn spawn(
                     min_width: CharacterLength::Relative(0.000000000000001),
                     include_dynamic_bodies: true,
                 }),
-                snap_to_ground:Some(CharacterLength::Absolute(2000000000000000.0)),
+                snap_to_ground: Some(CharacterLength::Absolute(2000000000000000.0)),
                 ..Default::default()
             },
             CharacterAnimations {
@@ -63,7 +63,7 @@ pub(crate) fn spawn(
             }),
             snap_to_ground: Some(CharacterLength::Absolute(2000000000000000.0)),
             ..Default::default()
-        },)
+        })
         .id();
 
     commands
@@ -84,14 +84,14 @@ pub(crate) fn spawn(
                     ..default()
                 },
                 KinematicCharacterController {
-                autostep: Some(CharacterAutostep {
-                    max_height: CharacterLength::Relative(7.0),
-                    min_width: CharacterLength::Relative(0.000000000000001),
-                    include_dynamic_bodies: true,
-                }),
-                snap_to_ground: Some(CharacterLength::Absolute(2000000000000000.0)),
-                ..Default::default()
-            },
+                    autostep: Some(CharacterAutostep {
+                        max_height: CharacterLength::Relative(7.0),
+                        min_width: CharacterLength::Relative(0.000000000000001),
+                        include_dynamic_bodies: true,
+                    }),
+                    snap_to_ground: Some(CharacterLength::Absolute(2000000000000000.0)),
+                    ..Default::default()
+                },
                 Name::new("Player Model"),
             ));
         });

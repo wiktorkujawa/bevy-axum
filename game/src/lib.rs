@@ -75,8 +75,7 @@ pub struct GamePlugin;
 impl Plugin for GamePlugin {
     fn build(&self, app: &mut App) {
         app.add_state::<GameState>()
-        // app.init_state::<GameState>()
-        .insert_resource(AssetMetaCheck::Never)
+            .insert_resource(AssetMetaCheck::Never)
             .fn_plugin(bevy_config_plugin)
             .fn_plugin(menu_plugin)
             .fn_plugin(movement_plugin)

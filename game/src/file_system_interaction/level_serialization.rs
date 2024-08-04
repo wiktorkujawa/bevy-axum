@@ -47,7 +47,7 @@ pub(crate) struct CurrentLevel {
 fn save_world(
     mut save_requests: EventReader<WorldSaveRequest>,
     spawn_query: Query<(&GameObject, Option<&SpawnStruct>)>,
-) -> Result<()>  {
+) -> Result<()> {
     for save in save_requests.read() {
         let scene = save.filename.clone();
         let valid_candidates: Vec<_> = iter::once(scene.clone())
@@ -106,7 +106,7 @@ fn load_world(
     mut spawn_requests: EventWriter<SpawnEvent<GameObject, SpawnStruct>>,
     levels: Res<Assets<SerializedLevel>>,
     level_handles: Res<LevelAssets>,
-) -> Result<()>  {
+) -> Result<()> {
     for load in load_requests.read() {
         let path = format!("levels/{}.lvl.ron", load.filename.clone());
         let handle = match level_handles.levels.get(&path) {
@@ -123,7 +123,7 @@ fn load_world(
         let spawn_events = &levels
             .get(handle)
             .context("Failed to get level from handle in level assets")?;
-            // .context("Failed to get level from handle in level assets").unwrap();
+        // .context("Failed to get level from handle in level assets").unwrap();
         let spawn_events = Vec::<SpawnEvent<GameObject, SpawnStruct>>::from(*spawn_events);
         for entity in &current_spawn_query {
             commands

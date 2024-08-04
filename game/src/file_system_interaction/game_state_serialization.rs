@@ -96,17 +96,19 @@ fn handle_load_requests(
         commands.insert_resource(save_model.conditions);
 
         spawner.send(
-            SpawnEvent::with_data(GameObject::Player, SpawnStruct {
-                transform: save_model.player_transform,
-                ..Default::default()
-            }).delay_frames(2),
+            SpawnEvent::with_data(
+                GameObject::Player,
+                SpawnStruct {
+                    transform: save_model.player_transform,
+                    ..Default::default()
+                },
+            )
+            .delay_frames(2),
         );
 
         spawner.send(
             SpawnEvent::with_data(GameObject::Dialog, SpawnStruct::default()).delay_frames(2),
         );
-
-
     }
     Ok(())
 }
@@ -134,7 +136,7 @@ fn handle_save_requests(
     conditions: Res<ActiveConditions>,
     player_query: Query<&GlobalTransform, With<Player>>,
     current_level: Res<CurrentLevel>,
-) -> Result<()>  {
+) -> Result<()> {
     for save in save_events.read() {
         for player in &player_query {
             let save_model = SaveModel {

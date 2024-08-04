@@ -54,7 +54,7 @@ fn handle_jump(mut player_query: Query<(&ActionState<PlayerAction>, &mut Jumping
 fn handle_horizontal_movement(
     mut player_query: Query<(&ActionState<PlayerAction>, &mut Walking, &Transform), With<Player>>,
     camera_query: Query<(&IngameCamera, &Transform), Without<Player>>,
-) -> Result<()>  {
+) -> Result<()> {
     #[cfg(feature = "tracing")]
     let _span = info_span!("handle_horizontal_movement").entered();
     let Some((camera, camera_transform)) = camera_query.iter().next() else {
@@ -180,14 +180,14 @@ fn control_walking_sound(
     character_query: Query<(&Velocity, &Transform, &Grounded), With<Player>>,
     audio: Res<AudioHandles>,
     mut audio_instances: ResMut<Assets<AudioInstance>>,
-) -> Result<()>  {
+) -> Result<()> {
     #[cfg(feature = "tracing")]
     let _span = info_span!("control_walking_sound").entered();
     for (velocity, transform, grounded) in character_query.iter() {
         let audio_instance = audio_instances
             .get_mut(&audio.walking)
             .context("Failed to get audio instance from handle")?;
-            // .context("Failed to get audio instance from handle").unwrap();
+        // .context("Failed to get audio instance from handle").unwrap();
         let has_horizontal_movement = !velocity
             .linvel
             .split(transform.up())

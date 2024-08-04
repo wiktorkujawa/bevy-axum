@@ -6,7 +6,6 @@ use bevy::utils::{HashMap, HashSet};
 // use indexmap::IndexMap;
 use serde::{Deserialize, Serialize};
 
-
 #[derive(Debug, Clone, PartialEq, Resource, Serialize, Deserialize)]
 pub(crate) struct CurrentDialog {
     pub(crate) source: Entity,

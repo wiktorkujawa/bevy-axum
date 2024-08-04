@@ -4,22 +4,27 @@ use bevy::prelude::*;
 
 use super::SpawnStruct;
 
-
 pub fn get_ui_spacing(array: Vec<f32>) -> UiRect {
     match array.len() {
-      1 => UiRect::all(Val::Px(array[0])),
-      2 => UiRect::axes(Val::Px(array[1]), Val::Px(array[0])),
-      3 => UiRect::new(Val::Px(array[1]),Val::Px(array[1]),Val::Px(array[0]),Val::Px(array[2])),
-      4 => UiRect::new(Val::Px(array[3]), Val::Px(array[1]), Val::Px(array[0]), Val::Px(array[2])),
-      _ => UiRect::all(Val::Px(0.0))
+        1 => UiRect::all(Val::Px(array[0])),
+        2 => UiRect::axes(Val::Px(array[1]), Val::Px(array[0])),
+        3 => UiRect::new(
+            Val::Px(array[1]),
+            Val::Px(array[1]),
+            Val::Px(array[0]),
+            Val::Px(array[2]),
+        ),
+        4 => UiRect::new(
+            Val::Px(array[3]),
+            Val::Px(array[1]),
+            Val::Px(array[0]),
+            Val::Px(array[2]),
+        ),
+        _ => UiRect::all(Val::Px(0.0)),
     }
-  }
+}
 
-
-pub(crate) fn spawn(
-    In(SpawnStruct {..}): In<SpawnStruct>,
-    mut commands: Commands
-) {
+pub(crate) fn spawn(In(SpawnStruct { .. }): In<SpawnStruct>, mut commands: Commands) {
     commands.spawn((
         NodeBundle {
             style: Style {

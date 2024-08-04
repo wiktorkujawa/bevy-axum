@@ -8,7 +8,7 @@ use bevy_editor_pls::default_windows::cameras::EditorCamera;
 
 use super::SpawnStruct;
 
-pub(crate) fn spawn(In(SpawnStruct { transform, ..}): In<SpawnStruct>, mut commands: Commands) {
+pub(crate) fn spawn(In(SpawnStruct { transform, .. }): In<SpawnStruct>, mut commands: Commands) {
     commands.spawn((
         IngameCamera::default(),
         Camera3dBundle {

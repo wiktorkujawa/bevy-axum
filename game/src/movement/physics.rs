@@ -27,7 +27,7 @@ pub(crate) fn read_colliders(
     children: Query<&Children>,
     meshes: Res<Assets<Mesh>>,
     mesh_handles: Query<&Handle<Mesh>>,
-) -> Result<()>  {
+) -> Result<()> {
     #[cfg(feature = "tracing")]
     let _span = info_span!("read_colliders").entered();
     for (entity, name) in &added_name {
@@ -38,7 +38,7 @@ pub(crate) fn read_colliders(
                 let rapier_collider =
                     Collider::from_bevy_mesh(collider_mesh, &ComputedColliderShape::TriMesh)
                         .context("Failed to create collider from mesh")?;
-                        // .context("Failed to create collider from mesh").unwrap();
+                // .context("Failed to create collider from mesh").unwrap();
 
                 commands
                     .entity(collider_entity)

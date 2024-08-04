@@ -4,10 +4,7 @@ use bevy::prelude::*;
 
 use super::SpawnStruct;
 
-pub(crate) fn spawn(
-    In(SpawnStruct { transform, ..}): In<SpawnStruct>,
-    mut commands: Commands
-) {
+pub(crate) fn spawn(In(SpawnStruct { transform, .. }): In<SpawnStruct>, mut commands: Commands) {
     commands.spawn((
         PointLightBundle {
             point_light: PointLight {

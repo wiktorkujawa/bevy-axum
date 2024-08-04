@@ -13,13 +13,13 @@ pub(crate) fn grab_cursor(
     mut primary_windows: Query<&mut Window, With<PrimaryWindow>>,
     actions_frozen: Res<ActionsFrozen>,
     force_cursor_grab: Res<ForceCursorGrabMode>,
-) -> Result<()>  {
+) -> Result<()> {
     #[cfg(feature = "tracing")]
     let _span = info_span!("cursor_grab_system").entered();
     let mut window = primary_windows
         .get_single_mut()
         .context("Failed to get primary window")?;
-        // .context("Failed to get primary window").unwrap();
+    // .context("Failed to get primary window").unwrap();
     let cursor = &mut window.cursor;
     if let Some(mode) = force_cursor_grab.0 {
         cursor.grab_mode = mode;

@@ -37,18 +37,18 @@ fn setup(
 
     // Make sure the player is spawned after the level
     delayed_spawner.send(
-        SpawnEvent::with_data(GameObject::Player, SpawnStruct {
-            transform: Transform::from_xyz(0., 1.5, 0.),
-            ..Default::default()
-        }
-    
-    
-    ).delay_frames(2),
+        SpawnEvent::with_data(
+            GameObject::Player,
+            SpawnStruct {
+                transform: Transform::from_xyz(0., 1.5, 0.),
+                ..Default::default()
+            },
+        )
+        .delay_frames(2),
     );
 
-    delayed_spawner.send(
-        SpawnEvent::with_data(GameObject::Dialog, SpawnStruct::default()).delay_frames(2),
-    );
+    delayed_spawner
+        .send(SpawnEvent::with_data(GameObject::Dialog, SpawnStruct::default()).delay_frames(2));
 }
 
 fn show_loading_screen(mut egui_contexts: EguiContexts) {

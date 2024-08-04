@@ -24,7 +24,7 @@ fn get_or_add_mesh_handle(mesh_assets: &mut Assets<Mesh>) -> Handle<Mesh> {
 }
 
 pub(crate) fn spawn(
-    In(SpawnStruct { transform, ..}): In<SpawnStruct>,
+    In(SpawnStruct { transform, .. }): In<SpawnStruct>,
     mut commands: Commands,
     mut meshes: ResMut<Assets<Mesh>>,
     materials: Res<Materials>,

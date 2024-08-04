@@ -13,16 +13,27 @@ use super::SpawnStruct;
 
 pub(crate) fn spawn(
     // In(transform): In<Transform>,
-    In(SpawnStruct { transform, npc, ..}): In<SpawnStruct>,    
+    In(SpawnStruct { transform, npc, .. }): In<SpawnStruct>,
     mut commands: Commands,
     animations_handles: Res<AnimationAssets>,
     scene_handles: Res<SceneAssets>,
 ) {
-
-    let character_idle = animations_handles.character_idle.get(&npc.animations.character_idle).unwrap();
-    let character_walking = animations_handles.character_walking.get(&npc.animations.character_walking).unwrap();
-    let character_running = animations_handles.character_running.get(&npc.animations.character_running).unwrap();
-    let character_falling = animations_handles.character_falling.get(&npc.animations.character_falling).unwrap();
+    let character_idle = animations_handles
+        .character_idle
+        .get(&npc.animations.character_idle)
+        .unwrap();
+    let character_walking = animations_handles
+        .character_walking
+        .get(&npc.animations.character_walking)
+        .unwrap();
+    let character_running = animations_handles
+        .character_running
+        .get(&npc.animations.character_running)
+        .unwrap();
+    let character_falling = animations_handles
+        .character_falling
+        .get(&npc.animations.character_falling)
+        .unwrap();
 
     let entity = commands
         .spawn((

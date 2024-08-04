@@ -100,21 +100,20 @@ pub(crate) struct AnimationAssets {
     pub(crate) player_character_aerial: Handle<AnimationClip>,
 }
 
-
 #[derive(AssetCollection, Resource, Clone)]
 pub(crate) struct ImageAssets {
-    #[asset(paths("branding/banner.png", "branding/sky.jpg", "branding/bevy_logo_dark.png", "branding/bevy_logo_dark_big.png"), collection(typed, mapped))]
+    #[asset(
+        paths(
+            "branding/banner.png",
+            "branding/sky.jpg",
+            "branding/bevy_logo_dark.png",
+            "branding/bevy_logo_dark_big.png"
+        ),
+        collection(typed, mapped)
+    )]
     // #[asset(path="branding", collection(typed, mapped))]
     pub(crate) images: HashMap<String, Handle<Image>>,
 }
-
-
-
-
-
-
-
-
 
 #[derive(AssetCollection, Resource, Clone)]
 pub(crate) struct LevelAssets {

@@ -11,7 +11,7 @@ pub(crate) fn set_camera_focus(
     current_dialog: Option<Res<CurrentDialog>>,
     player_query: Query<&Transform, With<Player>>,
     non_player_query: Query<&GlobalTransform, Without<Player>>,
-) -> Result<()>  {
+) -> Result<()> {
     for mut camera in camera_query.iter_mut() {
         for player_transform in player_query.iter() {
             if let Some(ref active_dialogue) = current_dialog {

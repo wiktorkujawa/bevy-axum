@@ -1,8 +1,10 @@
 use crate::file_system_interaction::asset_loading::ImageAssets;
 use crate::player_control::actions::{ActionsFrozen, PlayerAction};
 use crate::player_control::camera::{
-    // ForceCursorGrabMode, 
-    IngameCamera, IngameCameraKind};
+    // ForceCursorGrabMode,
+    IngameCamera,
+    IngameCameraKind,
+};
 use crate::player_control::player_embodiment::Player;
 // use crate::util::criteria::is_frozen;
 use crate::GameState;
@@ -23,7 +25,7 @@ use super::dialog::Dialog;
 pub enum DialogOpened {
     #[default]
     Off,
-    On
+    On,
 }
 
 pub(crate) fn interactions_ui_plugin(app: &mut App) {
@@ -38,10 +40,8 @@ pub(crate) fn interactions_ui_plugin(app: &mut App) {
         )
         .add_systems(
             Update,
-            display_interaction_prompt
-                .run_if(resource_exists::<InteractionUi>())
-                // .run_if(resource_exists::<InteractionUi>().and_then(not(is_frozen)))
-                // .run_if(in_state(GameState::Playing)),
+            display_interaction_prompt.run_if(resource_exists::<InteractionUi>()), // .run_if(resource_exists::<InteractionUi>().and_then(not(is_frozen)))
+                                                                                   // .run_if(in_state(GameState::Playing)),
         );
 }
 
@@ -84,13 +84,13 @@ fn update_interaction_ui(
     player_query: Query<&Transform, (With<Player>, Without<IngameCamera>)>,
     interaction_opportunities: Res<InteractionOpportunities>,
     camera_query: Query<(&IngameCamera, &Transform), Without<Player>>,
-) -> Result<()>  {
+) -> Result<()> {
     let mut valid_target = None;
     for entity in interaction_opportunities.0.iter() {
         let target_transform = non_player_query
             .get(*entity)
             .context("Failed to get transform of interaction target")?;
-            // .context("Failed to get transform of interaction target").unwrap();
+        // .context("Failed to get transform of interaction target").unwrap();
         for player_transform in player_query.iter() {
             for (camera, camera_transform) in camera_query.iter() {
                 let is_facing_target = is_facing_target(
@@ -204,15 +204,13 @@ fn display_interaction_prompt(
     //     ),
     // >,
     mut image_handles: Res<ImageAssets>,
-) -> Result<()>  {
+) -> Result<()> {
     for actions in actions.iter() {
-
         let window = primary_windows
             .get_single()
             .context("Failed to get primary window")?;
-            // .context("Failed to get primary window").unwrap();
+        // .context("Failed to get primary window").unwrap();
 
-        
         egui::Window::new("Interaction")
             .collapsible(false)
             .title_bar(false)
@@ -223,7 +221,14 @@ fn display_interaction_prompt(
             });
 
         if let Ok((_entity, dialog)) = npc_query.get(interaction_ui.source) {
-            dialog.open_dialog(&mut actions_frozen, actions, &mut get_dialog_opened, &mut change_dialog_opened, &mut egui_contexts, &mut image_handles );
+            dialog.open_dialog(
+                &mut actions_frozen,
+                actions,
+                &mut get_dialog_opened,
+                &mut change_dialog_opened,
+                &mut egui_contexts,
+                &mut image_handles,
+            );
         }
     }
     Ok(())

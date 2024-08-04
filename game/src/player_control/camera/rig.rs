@@ -23,7 +23,7 @@ pub(crate) fn update_rig(
     )>,
     rapier_context: Res<RapierContext>,
     config: Res<GameConfig>,
-) -> Result<()>  {
+) -> Result<()> {
     let dt = time.delta_seconds();
     for (mut camera, mut rig, actions, transform) in camera_query.iter_mut() {
         set_look_at(&mut rig, &camera);
@@ -89,13 +89,13 @@ fn set_position(rig: &mut Rig, camera: &IngameCamera) {
     // rig.driver_mut::<Position>().position = target;
 
     let target = if camera.kind != IngameCameraKind::FirstPerson {
-            match camera.secondary_target {
-                Some(secondary_target) => secondary_target.translation,
-                None => camera.target.translation,
-            }
-        } else {
-            camera.target.translation
-        };
+        match camera.secondary_target {
+            Some(secondary_target) => secondary_target.translation,
+            None => camera.target.translation,
+        }
+    } else {
+        camera.target.translation
+    };
     rig.driver_mut::<Position>().position = target;
 }
 

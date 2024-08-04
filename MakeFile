@@ -1,5 +1,7 @@
 build:
 	cargo build --package game --release --target wasm32-unknown-unknown && \
-		wasm-bindgen --out-dir dist --target web target/wasm32-unknown-unknown/release/game.wasm	
+		wasm-bindgen --out-dir dist --target web target/wasm32-unknown-unknown/release/game.wasm && \
+		cp index.html dist/index.html && \
+		cp -r game/assets dist/assets
 up: build
 	cargo run --package server

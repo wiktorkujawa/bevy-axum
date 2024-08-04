@@ -18,5 +18,5 @@ use seldom_fn_plugin::FnPluginExt;
 pub(crate) fn movement_plugin(app: &mut App) {
     app.fn_plugin(physics_plugin)
         .fn_plugin(general_movement_plugin);
-        // .fn_plugin(navigation_plugin);
+    // .fn_plugin(navigation_plugin);
 }

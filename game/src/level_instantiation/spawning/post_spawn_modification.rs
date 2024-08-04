@@ -35,7 +35,7 @@ pub(crate) fn set_shadows(
     parent_query: Query<&Parent>,
     imported: Query<&Imported>,
     names: Query<&Name>,
-) -> Result<()>  {
+) -> Result<()> {
     #[cfg(feature = "tracing")]
     let _span = info_span!("set_shadows").entered();
     for entity in added_mesh.iter() {
@@ -49,11 +49,11 @@ pub(crate) fn set_shadows(
         let parent = parent_query
             .get(entity)
             .context("Failed to get parent of added mesh")?;
-            // .context("Failed to get parent of added mesh").unwrap();
+        // .context("Failed to get parent of added mesh").unwrap();
         let name = names
             .get(parent.get())
             .context("Failed to get name of parent of added mesh")?;
-            // .context("Failed to get name of parent of added mesh").unwrap();
+        // .context("Failed to get name of parent of added mesh").unwrap();
 
         if !name.contains("[shadow]") {
             commands.entity(entity).insert(NotShadowCaster);

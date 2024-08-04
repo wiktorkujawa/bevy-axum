@@ -5,11 +5,14 @@ use bevy_rapier3d::prelude::*;
 
 use super::SpawnStruct;
 
-pub(crate) fn spawn_empty(In(SpawnStruct {..}): In<SpawnStruct>, mut commands: Commands) {
+pub(crate) fn spawn_empty(In(SpawnStruct { .. }): In<SpawnStruct>, mut commands: Commands) {
     commands.spawn(GameObject::Empty);
 }
 
-pub(crate) fn spawn_box(In(SpawnStruct { transform, ..}): In<SpawnStruct>, mut commands: Commands) {
+pub(crate) fn spawn_box(
+    In(SpawnStruct { transform, .. }): In<SpawnStruct>,
+    mut commands: Commands,
+) {
     commands.spawn((
         TransformBundle::from_transform(transform),
         Collider::cuboid(1., 1., 1.),
@@ -18,7 +21,10 @@ pub(crate) fn spawn_box(In(SpawnStruct { transform, ..}): In<SpawnStruct>, mut c
     ));
 }
 
-pub(crate) fn spawn_sphere(In(SpawnStruct { transform, ..}): In<SpawnStruct>, mut commands: Commands) {
+pub(crate) fn spawn_sphere(
+    In(SpawnStruct { transform, .. }): In<SpawnStruct>,
+    mut commands: Commands,
+) {
     commands.spawn((
         TransformBundle::from_transform(transform),
         Collider::ball(1.),
@@ -27,7 +33,10 @@ pub(crate) fn spawn_sphere(In(SpawnStruct { transform, ..}): In<SpawnStruct>, mu
     ));
 }
 
-pub(crate) fn spawn_capsule(In(SpawnStruct { transform, ..}): In<SpawnStruct>, mut commands: Commands) {
+pub(crate) fn spawn_capsule(
+    In(SpawnStruct { transform, .. }): In<SpawnStruct>,
+    mut commands: Commands,
+) {
     commands.spawn((
         TransformBundle::from_transform(transform),
         Collider::capsule_y(1., 1.),
@@ -36,7 +45,10 @@ pub(crate) fn spawn_capsule(In(SpawnStruct { transform, ..}): In<SpawnStruct>, m
     ));
 }
 
-pub(crate) fn spawn_triangle(In(SpawnStruct { transform, ..}): In<SpawnStruct>, mut commands: Commands) {
+pub(crate) fn spawn_triangle(
+    In(SpawnStruct { transform, .. }): In<SpawnStruct>,
+    mut commands: Commands,
+) {
     commands.spawn((
         TransformBundle::from_transform(transform),
         Collider::triangle(Vect::ZERO, Vect::Y, Vect::X),

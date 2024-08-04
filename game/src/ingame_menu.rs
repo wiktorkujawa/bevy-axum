@@ -20,7 +20,6 @@ fn handle_pause(
 ) {
     for action in actions.iter() {
         let toggled = action.just_pressed(UiAction::TogglePause);
-        // let toggled = action.just_pressed(&UiAction::TogglePause);
         if *paused {
             if toggled {
                 *paused = false;
@@ -43,20 +42,11 @@ fn handle_pause(
 
                             ui.add_space(100.0);
 
-                            // ui.image("https://picsum.photos/480");
-
-                            // if ui.button("Quit Game").clicked() {
-                            //     app_exit_events.send(AppExit);
-                            // }
                             if ui.button("Go to main page").clicked() {
-                                // if webbrowser::open("https://just-dev-it.com/")
-                                if webbrowser::open("https://google.com/")
-                                        .is_ok()
-                                    {
-                                        #[cfg(not(target_arch = "wasm32"))]
-                                        app_exit_events.send(AppExit);
-                                    }
-
+                                if webbrowser::open("https://just-dev-it.com/").is_ok() {
+                                    #[cfg(not(target_arch = "wasm32"))]
+                                    app_exit_events.send(AppExit);
+                                }
                             }
                         });
                     });
