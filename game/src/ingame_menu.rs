@@ -42,6 +42,12 @@ fn handle_pause(
 
                             ui.add_space(100.0);
 
+                            if ui.button("Resume").clicked() {
+                                *paused = false;
+                                time.unpause();
+                                actions_frozen.unfreeze();
+                            }
+
                             if ui.button("Go to main page").clicked() {
                                 if webbrowser::open("https://just-dev-it.com/").is_ok() {
                                     #[cfg(not(target_arch = "wasm32"))]
